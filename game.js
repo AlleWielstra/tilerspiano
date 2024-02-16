@@ -26,12 +26,25 @@ window.onload = function() {
 
         create() {
             const centerX = this.cameras.main.width / 2;
-            this.background = this.add.image(centerX, this.cameras.main.height / 2, 'background');
-            this.background.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
-            this.add.text(centerX, 250, 'Piano Tiles', { fontSize: '32px', fill: '#000' }).setOrigin(0.5);
-            this.add.text(centerX, 300, 'Press SPACE to Start', { fontSize: '20px', fill: '#000' }).setOrigin(0.5);
+            const centerY = this.cameras.main.height / 2;
 
+            this.background = this.add.image(centerX, centerY, 'background');
+            this.background.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
+
+            // Displaying the game title and instructions
+            this.add.text(centerX, centerY - 100, 'Piano Tiles', { fontSize: '32px', fill: '#000' }).setOrigin(0.5);
+
+            // Adjust the text to indicate touch or space to start
+            const startInstructions = this.sys.game.device.input.touch ? 'Tap to Start' : 'Press SPACE to Start';
+            this.add.text(centerX, centerY, startInstructions, { fontSize: '20px', fill: '#000' }).setOrigin(0.5);
+
+            // Keyboard input
             this.input.keyboard.once('keydown-SPACE', () => {
+                this.scene.start('MainScene');
+            });
+
+            // Touch input
+            this.input.on('pointerdown', () => {
                 this.scene.start('MainScene');
             });
         }
@@ -243,6 +256,10 @@ window.onload = function() {
             this.add.text(centerX, 300, 'Press SPACE to Restart', { fontSize: '20px', fill: '#000' }).setOrigin(0.5);
 
             this.input.keyboard.once('keydown-SPACE', () => {
+                this.scene.start('MainScene');
+            });
+            // Touch input
+            this.input.on('pointerdown', () => {
                 this.scene.start('MainScene');
             });
         }
