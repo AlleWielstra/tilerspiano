@@ -1,0 +1,42 @@
+@font-face {
+    font-family: vilaka;
+    src: url('./assets/fonts/vilaka.ttf') format('truetype');
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+
+#gameContainer {
+
+    height: 90%;
+    display: flex;
+    position: relative;
+    border: 2px solid #000;
+    box-shadow:
+            0px 0px 2.2px rgba(0, 0, 0, 0.076),
+            0px 0px 5.3px rgba(0, 0, 0, 0.109),
+            0px 0px 10px rgba(0, 0, 0, 0.135),
+            0px 0px 17.9px rgba(0, 0, 0, 0.161),
+            0px 0px 33.4px rgba(0, 0, 0, 0.194),
+            0px 0px 80px rgba(0, 0, 0, 0.27)
+;
+}
+
+.lane {
+    flex-grow: 1;
+    position: relative;
+    background-color: #fff;
+}
+
+.tile {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background-color: #000;
+}
