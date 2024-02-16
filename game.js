@@ -248,9 +248,11 @@ window.onload = function() {
         }
     }
 
-    var gameWidth = 800; // Fixed width
-    var windowHeight = window.innerHeight; // Dynamic window height
-    var gameHeight = windowHeight; // Set game height to match window height
+    // var gameWidth = 800; // Fixed width
+    // var windowHeight = window.innerHeight; // Dynamic window height
+    // var gameHeight = windowHeight; // Set game height to match window height
+    var gameWidth = window.innerWidth; // Dynamic window width for responsiveness
+    var gameHeight = window.innerHeight; // Dynamic window height for responsiveness
 
     var config = {
         type: Phaser.AUTO,
