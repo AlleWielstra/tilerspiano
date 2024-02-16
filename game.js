@@ -251,8 +251,14 @@ window.onload = function() {
     // var gameWidth = 800; // Fixed width
     // var windowHeight = window.innerHeight; // Dynamic window height
     // var gameHeight = windowHeight; // Set game height to match window height
-    var gameWidth = window.innerWidth; // Dynamic window width for responsiveness
-    var gameHeight = window.innerHeight; // Dynamic window height for responsiveness
+// Determine if the device is likely a mobile device based on the screen width
+    var isMobile = window.innerWidth <= 800;
+
+// Set game width dynamically: fixed width for desktop, screen width for mobile
+    var gameWidth = isMobile ? window.innerWidth : 800; // Use 800 as the fixed width for desktop
+
+// Set game height. You can adjust this as needed or keep it responsive
+    var gameHeight = window.innerHeight;
 
     var config = {
         type: Phaser.AUTO,
@@ -269,6 +275,6 @@ window.onload = function() {
             }
         }
     };
- 
+
     var game = new Phaser.Game(config);
 };
