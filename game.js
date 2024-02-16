@@ -77,6 +77,21 @@ window.onload = function() {
                 loop: true
             });
 
+            // Touch support
+            this.input.on('pointerdown', pointer => {
+                let widthSegment = this.cameras.main.width / 4;
+                if (pointer.x < widthSegment) {
+                    this.checkTile(0); // Leftmost tile
+                } else if (pointer.x < widthSegment * 2) {
+                    this.checkTile(1);
+                } else if (pointer.x < widthSegment * 3) {
+                    this.checkTile(2);
+                } else if (pointer.x <= widthSegment * 4) {
+                    this.checkTile(3); // Rightmost tile
+                }
+            });
+
+
             this.input.keyboard.removeAllListeners();
             this.input.keyboard.on('keydown-A', () => { this.checkTile(0) });
             this.input.keyboard.on('keydown-S', () => { this.checkTile(1) });
